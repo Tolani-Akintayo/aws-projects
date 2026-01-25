@@ -26,7 +26,7 @@ ECR_REPO_NAME="nest"
 LOCAL_IMAGE_NAME="nest"
 IMAGE_TAG="latest"
 AWS_REGION="us-east-2"
-AWS_ACCOUNT_ID="651783246143"
+AWS_ACCOUNT_ID="65163246143"
 
 # ================================================================
 # Retrieve secrets from AWS Secrets Manager
