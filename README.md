@@ -19,13 +19,21 @@ This repository contains various AWS-related projects, focusing on deploying a N
   - secret-provider-class.yaml: Secrets management.
   - eks-deployment.sh: Deployment script.
   - README.md: Detailed EKS setup.
-- **Images/**: Directory containing project diagrams.
-  - [PROJECT 1 - Hosting a Static Website on AWS Using the 3-Tier Architecture](Images/PROJECT 1 - Hosting a Static Website on AWS Using the 3-Tier Architecture .png): Diagram for static website hosting.
-  - [PROJECT 2 - Hosting a Dynamic Web Application on AWS Using the 3-Tier Architecture](Images/PROJECT 2 - Hosting a Dynamic Web Application on AWS Using the 3-Tier Architecture .png): Diagram for dynamic web app hosting.
-  - [PROJECT 3 - Hosting a Dynamic Web Application on AWS with Docker and ECS](Images/PROJECT 3 - Hosting a Dynamic Web Application on AWS with Docker and ECS.png): Diagram for Docker and ECS deployment.
-  - [PROJECT 4 - Hosting a Dynamic Web Application on AWS with Docker and EKS](Images/PROJECT 4 - Hosting a Dynamic Web Application on AWS with Docker and EKS.png): Diagram for Docker and EKS deployment.
+ 
 
-## Overview
+## Projects
+
+This repository includes four main AWS projects, each with diagrams illustrating the architecture:
+
+1. **Hosting a Static Website on AWS Using the 3-Tier Architecture**: Demonstrates deploying a static site with web, app, and data tiers. [View Diagram](Images/1.Hosting%20a%20Static%20Website%20on%20AWS%20Using%20the%203-Tier%20Architecture%20.png)
+
+2. **Hosting a Dynamic Web Application on AWS Using the 3-Tier Architecture**: Shows a dynamic app setup with scalable tiers. [View Diagram](Images/2.Hosting%20a%20Dynamic%20Web%20Application%20on%20AWS%20Using%20the%203-Tier%20Architecture%20.png)
+
+3. **Hosting a Dynamic Web Application on AWS with Docker and ECS**: Covers containerization and deployment using ECS. [View Diagram](Images/3.Hosting%20a%20Dynamic%20Web%20Application%20on%20AWS%20with%20Docker%20and%20ECS.png)
+
+4. **Hosting a Dynamic Web Application on AWS with Docker and EKS**: Focuses on Kubernetes deployment with EKS, including the Nest app example. [View Diagram](Images/4.Hosting%20a%20Dynamic%20Web%20Application%20on%20AWS%20with%20Docker%20and%20EKS.png)
+
+The Docker/nest-app and eks/nest-app directories provide practical implementation for project 4.
 
 The Nest app (a PHP/Laravel application) is containerized using Docker and deployed to AWS EKS for production. The Docker setup in `Docker/nest-app` builds the image, while `eks/nest-app` handles Kubernetes deployment.
 
