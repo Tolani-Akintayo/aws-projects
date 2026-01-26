@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-nest-eks-deployment    # Update as needed
+  namespace: dev-nest-eks-namespace    # Update as needed, must match Service metadata.namespace
+  labels:
+    app: nest-app    # Must match Service selector.app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nest-app    # Must match Service selector.app
+  template:
+    metadata:
+      labels:
+        app: nest-app    # Must match Service selector.app
+    spec:
+      serviceAccountName: dev-nest-eks-service-account    # Update as needed
+      volumes:
+      - name: secrets-store-inline
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: dev-nest-eks-secret-provider-class    # Update as needed, must match SecretProviderClass metadata.name
+      containers:
+      - name: dev-nest-eks-container    # Update as needed
+        image: 651783246143.dkr.ecr.us-east-1.amazonaws.com/nest:latest    # Update as needed
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80    # Update as needed, must match Service ports.targetPort
+        volumeMounts:
+        - name: secrets-store-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true

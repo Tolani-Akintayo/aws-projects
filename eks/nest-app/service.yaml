@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dev-nest-eks-service    # Update as needed
+  namespace: dev-nest-eks-namespace    # Update as needed, must match Deployment metadata.namespace
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+    service.beta.kubernetes.io/aws-load-balancer-internal: "false"
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:us-east-1:651783246143:certificate/f6d5c4dc-e229-44c3-a627-ceb3357b0a27"    # Update as needed with your ACM certificate ARN
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+spec:
+  type: LoadBalancer
+  ports:
+    - name: https
+      port: 443
+      targetPort: 80    # Update as needed, must match Deployment ports.containerPort
+      protocol: TCP
+  selector:
+    app: nest-app    # Update as needed, must match Deployment metadata.labels.app and spec.selector.matchLabels.app
