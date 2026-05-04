@@ -11,7 +11,7 @@ resource "aws_acm_certificate" "acm_certificate" {
 
 # Route 53 for ACM validation
 data "aws_route53_zone" "hosted_zone" {
-  name         = "var.domain_name"
+  name         = var.domain_name
   private_zone = false
 }
 

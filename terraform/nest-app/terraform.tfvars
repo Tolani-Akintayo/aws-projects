@@ -31,8 +31,8 @@ flyway_version      = "11.20.0"
 sql_script_s3_uri   = "s3://dev-tolani-webfiles/project-2-assests/V1__nest.sql"
 
 # ACM
-domain_name       = "tolani.com"
-alternative_names = "*.tolani.com"
+domain_name       = "tolaniakintayo.xyz"
+alternative_names = "*.tolaniakintayo.xyz"
 
 # ALB
 target_type       = "instance"
